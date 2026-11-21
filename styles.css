@@ -30,5 +30,6 @@ footer a{color:inherit}
 .chip{font:14px/1 var(--sans);color:var(--ink);border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 13px}
 .feature .note{font:14px/1.5 var(--sans);color:var(--muted);margin:6px 0 0}
 .aside{color:var(--soft);font-size:17px;margin:36px 0 0}
-.aside a{color:var(--ink);text-decoration-color:var(--gold);text-underline-offset:3px}
+.aside a,.back a,ul.plain a,.feature .note a{color:var(--ink);text-decoration-color:var(--gold);text-underline-offset:3px}
+.back{color:var(--soft);margin:0 0 8px}
 @media (max-width:520px){.feature{padding:24px 20px}}
