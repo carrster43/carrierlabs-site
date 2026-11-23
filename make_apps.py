@@ -9,7 +9,7 @@ WHAT IT WRITES
   apps/<slug>/index.html one short detail page per app: icon, what it does, price,
                          one button, the screenshots, then a link to the full page
   apps/icons/<slug>.webp copied from carrierpress-site/apps/icons/
-  index.html             the app row at the top of the homepage (apps:row markers)
+  index.html             the Labs and Apps bar at the top of the homepage (apps:row markers)
   sitemap.xml            every page above
 
 WHY A DETAIL PAGE HERE (author 2026-11-23). A tap on an icon used to land on the
@@ -125,6 +125,12 @@ def head(title, desc, canonical, css_up):
                css_up, css_up, css_up))
 
 
+def topnav(here, up):
+    """The bar at the top of every page: just Labs and Apps (author 2026-11-23)."""
+    link = lambda label, href, key: '<a href="%s"%s>%s</a>' % (href, ' aria-current="page"' if key == here else "", label)
+    return '<nav class="topnav" aria-label="Carrier Labs">%s%s</nav>' % (link("Labs", up or "./", "labs"), link("Apps", up + "apps/", "apps"))
+
+
 FOOT = ('<footer class="wrap">&copy; 2026 Carrier Labs LLC, Diamondhead, Mississippi. Part of '
         '<a href="https://carrierventures.org/">Carrier Ventures</a> &middot; '
         '<a href="https://carrierpress.com/">Carrier Press</a></footer>')
@@ -139,7 +145,7 @@ def detail(app, prev, nxt):
     full = "%s/apps/%s/" % (PRESS_URL, s)
     b = [head("%s, from Carrier Labs" % app["name"], text(app["blurb"]), full, "../../")]
     b.append('<body class="dt">\n<div class="dt-band" style="--accent:%s"><div class="wrap">\n' % app["accent"])
-    b.append('<nav class="dt-nav"><a href="../">&lsaquo; All apps</a></nav>\n')
+    b.append(topnav("apps", "../../") + "\n")
     b.append('<div class="dt-id"><img class="dt-icon" src="../icons/%s.webp" alt="" width="96" height="96">'
              '<div><h1>%s</h1><span class="dt-status">%s</span></div></div>\n'
              % (s, n, html.escape(app["status"])))
@@ -212,16 +218,13 @@ def main():
         (out / "index.html").write_text(detail(a, apps[i - 1], apps[(i + 1) % len(apps)]))
     splice(HERE / "apps/index.html", "apps:grid",
            "<ul class=\"springboard\">\n%s\n</ul>" % "\n".join(tile(a, "", i) for i, a in enumerate(apps)))
-    splice(HERE / "index.html", "apps:row",
-           '<section class="approw" aria-labelledby="approw-h"><div class="approw-top">'
-           '<h2 id="approw-h">Apps from Carrier Labs</h2><a href="apps/">See all %d</a></div>'
-           '<ul class="approw-list">%s</ul></section>'
-           % (len(apps), "".join(tile(a, "apps/") for a in apps)))
+    splice(HERE / "index.html", "apps:row", topnav("labs", ""))
+    splice(HERE / "apps/index.html", "apps:nav", topnav("apps", "../"))
     urls = ["", "apps/"] + ["apps/%s/" % a["slug"] for a in apps]
     (HERE / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n%s\n</urlset>\n'
         % "\n".join("  <url><loc>%s/%s</loc></url>" % (LABS_URL, u) for u in urls))
-    print("%d apps: grid, %d detail pages, homepage row, sitemap %d urls"
+    print("%d apps: grid, %d detail pages, Labs and Apps bar, sitemap %d urls"
           % (len(apps), len(apps), len(urls)))
     for a in apps:
         if not a["shots"]:

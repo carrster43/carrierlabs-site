@@ -1,9 +1,17 @@
+/* ---- the bar at the top of every page: Labs and Apps ---- */
+.topnav{display:flex;gap:26px;align-items:center;padding:16px 0 4px}
+.topnav a{font:600 14px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:9px 0 7px;border-bottom:2px solid transparent}
+.topnav a:hover,.topnav a:focus-visible{color:var(--ink)}
+.topnav a[aria-current=page]{color:var(--ink);border-bottom-color:var(--gold)}
+.dt-band .topnav{padding-top:0}
+.dt-band .topnav a{color:rgba(255,255,255,.78)}
+.dt-band .topnav a:hover,.dt-band .topnav a:focus-visible{color:#fff}
+.dt-band .topnav a[aria-current=page]{color:#fff;border-bottom-color:#fff}
+
 /* App detail pages (apps/<slug>/) and the homepage app row. Built by make_apps.py. */
 
 /* ---- detail page: the card, App Store style ---- */
 .dt-band{background:var(--accent);color:#fff;padding:18px 0 30px}
-.dt-nav a{display:inline-block;font:600 15px/1 var(--sans);color:#fff;text-decoration:none;opacity:.9;padding:8px 0}
-.dt-nav a:hover,.dt-nav a:focus-visible{opacity:1;text-decoration:underline;text-underline-offset:4px}
 .dt-id{display:flex;align-items:center;gap:18px;margin:18px 0 16px}
 .dt-icon{width:96px;height:96px;border-radius:22%;background:#fff;box-shadow:0 10px 28px rgba(0,0,0,.3);flex:0 0 auto}
 .dt-id h1{font-size:clamp(30px,7vw,42px);line-height:1.08;margin:0 0 8px;color:#fff}
@@ -43,18 +51,6 @@
 .name{font:500 12px/1.25 var(--sans);text-align:center;max-width:100%;color:var(--soft)}
 .soon{position:absolute;top:-7px;right:-9px;font:700 10px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;background:var(--gold);color:#151a33;border-radius:999px;padding:4px 7px;box-shadow:0 1px 3px rgba(0,0,0,.2)}
 @media (prefers-color-scheme:dark){.tile{box-shadow:0 1px 2px rgba(0,0,0,.4),0 8px 18px -8px rgba(0,0,0,.7)}}
-
-/* ---- homepage app row: a sideways strip of icons at the top ---- */
-.approw{padding:22px 0 6px;border-bottom:1px solid var(--line)}
-.approw-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.approw h2{font:600 13px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0}
-.approw-top a{font:600 14px/1 var(--sans);color:var(--ink);text-decoration-color:var(--gold);text-underline-offset:3px}
-.approw-list{list-style:none;display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x proximity;margin:12px -20px 0;padding:6px 20px 14px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-.approw-list::-webkit-scrollbar{display:none}
-.approw-list li{flex:0 0 76px;scroll-snap-align:start;display:flex;justify-content:center}
-.approw-list .app{width:76px}
-.approw-list .name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:72px}
-.approw-list .soon{right:-6px}
 
 /* launch: the tapped app's colour opens out from its icon to fill the screen */
 .launch{position:fixed;inset:0;z-index:50;display:grid;place-items:center;pointer-events:none;will-change:clip-path}
