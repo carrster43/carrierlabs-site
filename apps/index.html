@@ -3,7 +3,7 @@
 <title>Every App from Carrier Labs, One Tap Away</title><meta name="description" content="Every Carrier Labs app on one screen. Tap an icon to see what the app does and what it costs, then open it right in your browser.">
 <link rel="canonical" href="https://carrierlabs.org/apps/"><meta property="og:title" content="Every App from Carrier Labs, One Tap Away"><meta property="og:description" content="Every Carrier Labs app on one screen. Tap an icon to see what the app does and what it costs, then open it right in your browser.">
 <meta property="og:url" content="https://carrierlabs.org/apps/"><meta property="og:type" content="website"><meta name="twitter:card" content="summary">
-<link rel="icon" href="../favicon.png" type="image/png"><link rel="stylesheet" href="../styles.css">
+<link rel="icon" href="../favicon.png" type="image/png"><link rel="stylesheet" href="../styles.css"><link rel="stylesheet" href="apps.css">
 <style>
 .home{padding:48px 0 4px}
 .home h1{margin:12px 0 10px}
@@ -30,120 +30,48 @@
 .js .springboard li{animation:settle .5s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i) * 22ms)}
 @keyframes settle{from{opacity:0;transform:translateY(10px) scale(.86)}to{opacity:1;transform:none}}
 }
-/* launch: the tapped app's colour opens out from its icon to fill the screen */
-.launch{position:fixed;inset:0;z-index:50;display:grid;place-items:center;pointer-events:none;will-change:clip-path}
-.launch .glyph{width:96px;height:96px;border-radius:22%;background:#fff;display:grid;place-items:center;box-shadow:0 10px 40px rgba(0,0,0,.25);will-change:transform,opacity}
-.launch .glyph img{width:100%;height:100%;border-radius:22%}
-.launch .glyph.mono{background:rgba(255,255,255,.12);color:#fff;font:700 50px/1 var(--serif)}
-.launch .title{position:absolute;left:0;right:0;top:calc(50% + 72px);text-align:center;color:#fff;font:600 20px/1.2 var(--sans);letter-spacing:.01em}
 </style>
 </head>
 <body><main class="wrap">
 <header class="home"><a class="crumb" href="../">Carrier Labs</a><h1>Every app, one tap away.</h1><p class="lede">Each one runs right in your browser. Tap an icon to see what the app does and what it costs.</p></header>
 
+<!-- apps:grid:start -->
 <ul class="springboard">
-<li style="--i:0"><a class="app" href="https://carrierpress.com/apps/bench/" data-accent="#4A4E8C"><span class="tile"><img src="icons/bench.webp" alt="" width="84" height="84"></span><span class="name">Bench</span></a></li>
-<li style="--i:1"><a class="app" href="https://carrierpress.com/apps/boatready/" data-accent="#102F42"><span class="tile"><img src="icons/boatready.webp" alt="" width="84" height="84"></span><span class="name">Boat Ready</span></a></li>
-<li style="--i:2"><a class="app" href="https://carrierpress.com/apps/soleledger/" data-accent="#54565A"><span class="tile"><img src="icons/soleledger.webp" alt="" width="84" height="84"></span><span class="name">Books for One</span></a></li>
-<li style="--i:3"><a class="app" href="https://carrierpress.com/apps/cancelled/" data-accent="#2F5D50"><span class="tile"><img src="icons/cancelled.webp" alt="" width="84" height="84"></span><span class="name">Canceled</span></a></li>
-<li style="--i:4"><a class="app" href="https://carrierpress.com/apps/cast/" data-accent="#6E5316"><span class="tile"><img src="icons/cast.webp" alt="" width="84" height="84"></span><span class="name">Cast</span></a></li>
-<li style="--i:5"><a class="app" href="https://carrierpress.com/apps/conceptionzodiac/" data-accent="#2E2458"><span class="tile"><img src="icons/conceptionzodiac.webp" alt="" width="84" height="84"></span><span class="name">Conception Zodiac</span></a></li>
-<li style="--i:6"><a class="app" href="https://carrierpress.com/apps/crosscheck/" data-accent="#3A5A6E"><span class="tile"><img src="icons/crosscheck.webp" alt="" width="84" height="84"></span><span class="name">Crosscheck</span></a></li>
-<li style="--i:7"><a class="app" href="https://carrierpress.com/apps/downpour/" data-accent="#22557F"><span class="tile"><img src="icons/downpour.webp" alt="" width="84" height="84"></span><span class="name">Downpour</span></a></li>
-<li style="--i:8"><a class="app" href="https://carrierpress.com/apps/endorsed/" data-accent="#2F3440"><span class="tile"><img src="icons/endorsed.webp" alt="" width="84" height="84"></span><span class="name">Endorsed</span></a></li>
-<li style="--i:9"><a class="app" href="https://carrierpress.com/apps/firstday/" data-accent="#185956"><span class="tile"><img src="icons/firstday.webp" alt="" width="84" height="84"></span><span class="name">FirstDay</span></a></li>
-<li style="--i:10"><a class="app" href="https://carrierpress.com/apps/flare/" data-accent="#933C2A"><span class="tile"><img src="icons/flare.webp" alt="" width="84" height="84"></span><span class="name">Flare</span></a></li>
-<li style="--i:11"><a class="app" href="https://carrierpress.com/apps/fluenthour/" data-accent="#874730"><span class="tile"><img src="icons/fluenthour.webp" alt="" width="84" height="84"></span><span class="name">Fluent Hour</span></a></li>
-<li style="--i:12"><a class="app" href="https://carrierpress.com/apps/gedcompletion/" data-accent="#1F5C4A"><span class="tile"><img src="icons/gedcompletion.webp" alt="" width="84" height="84"><span class="soon">Soon</span></span><span class="name">GED Completion</span></a></li>
-<li style="--i:13"><a class="app" href="https://carrierpress.com/apps/handoff/" data-accent="#4A5568"><span class="tile"><img src="icons/handoff.webp" alt="" width="84" height="84"></span><span class="name">Handoff</span></a></li>
-<li style="--i:14"><a class="app" href="https://carrierpress.com/apps/homeroom/" data-accent="#285F47"><span class="tile"><img src="icons/homeroom.webp" alt="" width="84" height="84"></span><span class="name">Homeroom</span></a></li>
-<li style="--i:15"><a class="app" href="https://carrierpress.com/apps/pantry/" data-accent="#874521"><span class="tile"><img src="icons/pantry.webp" alt="" width="84" height="84"></span><span class="name">Pantry</span></a></li>
-<li style="--i:16"><a class="app" href="https://carrierpress.com/apps/papertrail/" data-accent="#2A5F47"><span class="tile"><img src="icons/papertrail.webp" alt="" width="84" height="84"></span><span class="name">Paper Trail</span></a></li>
-<li style="--i:17"><a class="app" href="https://carrierpress.com/apps/pillproof/" data-accent="#1B4F8F"><span class="tile"><img src="icons/pillproof.webp" alt="" width="84" height="84"></span><span class="name">PillProof</span></a></li>
-<li style="--i:18"><a class="app" href="https://carrierpress.com/apps/planfinder/" data-accent="#2F5169"><span class="tile"><img src="icons/planfinder.webp" alt="" width="84" height="84"></span><span class="name">Plan Finder</span></a></li>
-<li style="--i:19"><a class="app" href="https://carrierpress.com/apps/potluck/" data-accent="#6F4822"><span class="tile"><img src="icons/potluck.webp" alt="" width="84" height="84"></span><span class="name">Potluck</span></a></li>
-<li style="--i:20"><a class="app" href="https://carrierpress.com/apps/quiet/" data-accent="#60513F"><span class="tile"><img src="icons/quiet.webp" alt="" width="84" height="84"></span><span class="name">Quiet</span></a></li>
-<li style="--i:21"><a class="app" href="https://carrierpress.com/apps/spellbright/" data-accent="#6B3FA0"><span class="tile"><img src="icons/spellbright.webp" alt="" width="84" height="84"></span><span class="name">Spellbright</span></a></li>
-<li style="--i:22"><a class="app" href="https://carrierpress.com/apps/stuck/" data-accent="#195F5F"><span class="tile"><img src="icons/stuck.webp" alt="" width="84" height="84"></span><span class="name">Stuck</span></a></li>
-<li style="--i:23"><a class="app" href="https://carrierpress.com/apps/thebinder/" data-accent="#4A5240"><span class="tile"><img src="icons/thebinder.webp" alt="" width="84" height="84"></span><span class="name">The Binder</span></a></li>
-<li style="--i:24"><a class="app" href="https://carrierpress.com/apps/threshold/" data-accent="#6F510C"><span class="tile"><img src="icons/threshold.webp" alt="" width="84" height="84"></span><span class="name">Threshold</span></a></li>
-<li style="--i:25"><a class="app" href="https://carrierpress.com/apps/throughthegate/" data-accent="#1B557D"><span class="tile"><img src="icons/throughthegate.webp" alt="" width="84" height="84"></span><span class="name">Through the Gate</span></a></li>
-<li style="--i:26"><a class="app" href="https://carrierpress.com/apps/tradedesk/" data-accent="#914216"><span class="tile"><img src="icons/tradedesk.webp" alt="" width="84" height="84"></span><span class="name">Trade Desk</span></a></li>
-<li style="--i:27"><a class="app" href="https://carrierpress.com/apps/vetpocket/" data-accent="#6D492B"><span class="tile"><img src="icons/vetpocket.webp" alt="" width="84" height="84"></span><span class="name">Vet Pocket</span></a></li>
-<li style="--i:28"><a class="app" href="https://carrierpress.com/apps/waitlist/" data-accent="#42556D"><span class="tile"><img src="icons/waitlist.webp" alt="" width="84" height="84"><span class="soon">Soon</span></span><span class="name">Waitlist</span></a></li>
-<li style="--i:29"><a class="app" href="https://carrierpress.com/apps/whoserves/" data-accent="#2F4858"><span class="tile"><img src="icons/whoserves.webp" alt="" width="84" height="84"></span><span class="name">Who Serves</span></a></li>
+<li style="--i:0"><a class="app" href="bench/" data-accent="#4A4E8C"><span class="tile"><img src="icons/bench.webp" alt="" width="84" height="84"></span><span class="name">Bench</span></a></li>
+<li style="--i:1"><a class="app" href="boatready/" data-accent="#102F42"><span class="tile"><img src="icons/boatready.webp" alt="" width="84" height="84"></span><span class="name">Boat Ready</span></a></li>
+<li style="--i:2"><a class="app" href="soleledger/" data-accent="#54565A"><span class="tile"><img src="icons/soleledger.webp" alt="" width="84" height="84"></span><span class="name">Books for One</span></a></li>
+<li style="--i:3"><a class="app" href="cancelled/" data-accent="#2F5D50"><span class="tile"><img src="icons/cancelled.webp" alt="" width="84" height="84"></span><span class="name">Canceled</span></a></li>
+<li style="--i:4"><a class="app" href="cast/" data-accent="#6E5316"><span class="tile"><img src="icons/cast.webp" alt="" width="84" height="84"></span><span class="name">Cast</span></a></li>
+<li style="--i:5"><a class="app" href="conceptionzodiac/" data-accent="#2E2458"><span class="tile"><img src="icons/conceptionzodiac.webp" alt="" width="84" height="84"></span><span class="name">Conception Zodiac</span></a></li>
+<li style="--i:6"><a class="app" href="crosscheck/" data-accent="#3A5A6E"><span class="tile"><img src="icons/crosscheck.webp" alt="" width="84" height="84"></span><span class="name">Crosscheck</span></a></li>
+<li style="--i:7"><a class="app" href="downpour/" data-accent="#22557F"><span class="tile"><img src="icons/downpour.webp" alt="" width="84" height="84"></span><span class="name">Downpour</span></a></li>
+<li style="--i:8"><a class="app" href="endorsed/" data-accent="#2F3440"><span class="tile"><img src="icons/endorsed.webp" alt="" width="84" height="84"></span><span class="name">Endorsed</span></a></li>
+<li style="--i:9"><a class="app" href="firstday/" data-accent="#185956"><span class="tile"><img src="icons/firstday.webp" alt="" width="84" height="84"></span><span class="name">FirstDay</span></a></li>
+<li style="--i:10"><a class="app" href="flare/" data-accent="#933C2A"><span class="tile"><img src="icons/flare.webp" alt="" width="84" height="84"></span><span class="name">Flare</span></a></li>
+<li style="--i:11"><a class="app" href="fluenthour/" data-accent="#874730"><span class="tile"><img src="icons/fluenthour.webp" alt="" width="84" height="84"></span><span class="name">Fluent Hour</span></a></li>
+<li style="--i:12"><a class="app" href="gedcompletion/" data-accent="#1F5C4A"><span class="tile"><img src="icons/gedcompletion.webp" alt="" width="84" height="84"><span class="soon">Soon</span></span><span class="name">GED Completion</span></a></li>
+<li style="--i:13"><a class="app" href="handoff/" data-accent="#4A5568"><span class="tile"><img src="icons/handoff.webp" alt="" width="84" height="84"></span><span class="name">Handoff</span></a></li>
+<li style="--i:14"><a class="app" href="homeroom/" data-accent="#285F47"><span class="tile"><img src="icons/homeroom.webp" alt="" width="84" height="84"></span><span class="name">Homeroom</span></a></li>
+<li style="--i:15"><a class="app" href="pantry/" data-accent="#874521"><span class="tile"><img src="icons/pantry.webp" alt="" width="84" height="84"></span><span class="name">Pantry</span></a></li>
+<li style="--i:16"><a class="app" href="papertrail/" data-accent="#2A5F47"><span class="tile"><img src="icons/papertrail.webp" alt="" width="84" height="84"></span><span class="name">Paper Trail</span></a></li>
+<li style="--i:17"><a class="app" href="pillproof/" data-accent="#1B4F8F"><span class="tile"><img src="icons/pillproof.webp" alt="" width="84" height="84"></span><span class="name">PillProof</span></a></li>
+<li style="--i:18"><a class="app" href="planfinder/" data-accent="#2F5169"><span class="tile"><img src="icons/planfinder.webp" alt="" width="84" height="84"></span><span class="name">Plan Finder</span></a></li>
+<li style="--i:19"><a class="app" href="potluck/" data-accent="#6F4822"><span class="tile"><img src="icons/potluck.webp" alt="" width="84" height="84"></span><span class="name">Potluck</span></a></li>
+<li style="--i:20"><a class="app" href="quiet/" data-accent="#60513F"><span class="tile"><img src="icons/quiet.webp" alt="" width="84" height="84"></span><span class="name">Quiet</span></a></li>
+<li style="--i:21"><a class="app" href="spellbright/" data-accent="#6B3FA0"><span class="tile"><img src="icons/spellbright.webp" alt="" width="84" height="84"></span><span class="name">Spellbright</span></a></li>
+<li style="--i:22"><a class="app" href="stuck/" data-accent="#195F5F"><span class="tile"><img src="icons/stuck.webp" alt="" width="84" height="84"></span><span class="name">Stuck</span></a></li>
+<li style="--i:23"><a class="app" href="thebinder/" data-accent="#4A5240"><span class="tile"><img src="icons/thebinder.webp" alt="" width="84" height="84"></span><span class="name">The Binder</span></a></li>
+<li style="--i:24"><a class="app" href="threshold/" data-accent="#6F510C"><span class="tile"><img src="icons/threshold.webp" alt="" width="84" height="84"></span><span class="name">Threshold</span></a></li>
+<li style="--i:25"><a class="app" href="throughthegate/" data-accent="#1B557D"><span class="tile"><img src="icons/throughthegate.webp" alt="" width="84" height="84"></span><span class="name">Through the Gate</span></a></li>
+<li style="--i:26"><a class="app" href="tradedesk/" data-accent="#914216"><span class="tile"><img src="icons/tradedesk.webp" alt="" width="84" height="84"></span><span class="name">Trade Desk</span></a></li>
+<li style="--i:27"><a class="app" href="vetpocket/" data-accent="#6D492B"><span class="tile"><img src="icons/vetpocket.webp" alt="" width="84" height="84"></span><span class="name">Vet Pocket</span></a></li>
+<li style="--i:28"><a class="app" href="waitlist/" data-accent="#42556D"><span class="tile"><img src="icons/waitlist.webp" alt="" width="84" height="84"><span class="soon">Soon</span></span><span class="name">Waitlist</span></a></li>
+<li style="--i:29"><a class="app" href="whoserves/" data-accent="#2F4858"><span class="tile"><img src="icons/whoserves.webp" alt="" width="84" height="84"></span><span class="name">Who Serves</span></a></li>
 </ul>
+<!-- apps:grid:end -->
 
 <p class="more">Want prices side by side? <a href="https://carrierpress.com/apps/">See every app with its price</a>. Listening instead? <a href="../">Cast performs books with a voice for each character</a>.</p>
 </main>
 <footer class="wrap">&copy; 2026 Carrier Labs LLC, Diamondhead, Mississippi. Part of <a href="https://carrierventures.org/">Carrier Ventures</a> &middot; <a href="https://carrierpress.com/">Carrier Press</a></footer>
-<script>
-(function(){
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-  document.documentElement.classList.add('js');
-  var overlay = null, timer = null;
-
-  function clear(){
-    if (overlay) { overlay.remove(); overlay = null; }
-    if (timer) { clearTimeout(timer); timer = null; }
-    document.querySelectorAll('.app.pressed').forEach(function(a){ a.classList.remove('pressed'); });
-  }
-  // Coming back with the Back button restores this page from cache: drop the overlay.
-  window.addEventListener('pageshow', clear);
-
-  document.querySelectorAll('.app').forEach(function(a){
-    a.addEventListener('pointerdown', function(){ a.classList.add('pressed'); });
-    ['pointerup','pointerleave','pointercancel'].forEach(function(t){
-      a.addEventListener(t, function(){ a.classList.remove('pressed'); });
-    });
-
-    a.addEventListener('click', function(e){
-      // New tab, new window, or reduced motion: let the plain link do its job.
-      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-      if (reduce.matches || !('animate' in Element.prototype) || overlay) return;
-      e.preventDefault();
-
-      var href = a.href, tile = a.querySelector('.tile'), r = tile.getBoundingClientRect();
-      var W = window.innerWidth, H = window.innerHeight;
-      var radius = r.width * 0.22;
-
-      overlay = document.createElement('div');
-      overlay.className = 'launch';
-      overlay.setAttribute('aria-hidden', 'true');
-      overlay.style.background = a.dataset.accent || '#151a33';
-      var glyph = document.createElement('div');
-      var img = tile.querySelector('img');
-      if (img) { glyph.className = 'glyph'; glyph.appendChild(img.cloneNode()); }
-      else { glyph.className = 'glyph mono'; glyph.textContent = tile.textContent; }
-      var title = document.createElement('div');
-      title.className = 'title';
-      title.textContent = a.querySelector('.name').textContent;
-      overlay.appendChild(glyph); overlay.appendChild(title);
-      document.body.appendChild(overlay);
-
-      // 1. The colour opens out from the icon's exact spot to the whole screen.
-      var from = 'inset(' + r.top + 'px ' + (W - r.right) + 'px ' + (H - r.bottom) + 'px ' + r.left + 'px round ' + radius + 'px)';
-      var open = overlay.animate(
-        [{ clipPath: from }, { clipPath: 'inset(0px 0px 0px 0px round 0px)' }],
-        { duration: 480, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'forwards' });
-
-      // 2. The icon travels with it from where it sat to the centre, growing as it goes.
-      var dx = (r.left + r.width / 2) - W / 2, dy = (r.top + r.height / 2) - H / 2, s = r.width / 96;
-      glyph.animate(
-        [{ transform: 'translate(' + dx + 'px,' + dy + 'px) scale(' + s + ')' }, { transform: 'none' }],
-        { duration: 480, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'forwards' });
-
-      // 3. The name rises in underneath.
-      title.animate(
-        [{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }],
-        { duration: 260, delay: 260, easing: 'ease-out', fill: 'both' });
-
-      var go = function(){ window.location.href = href; };
-      open.onfinish = function(){ timer = setTimeout(go, 160); };
-      // Safety net: never strand anyone on the colour screen.
-      setTimeout(go, 1100);
-    });
-  });
-})();
-</script>
+<script src="launch.js"></script>
 </body></html>

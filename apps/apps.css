@@ -1,0 +1,64 @@
+/* App detail pages (apps/<slug>/) and the homepage app row. Built by make_apps.py. */
+
+/* ---- detail page: the card, App Store style ---- */
+.dt-band{background:var(--accent);color:#fff;padding:18px 0 30px}
+.dt-nav a{display:inline-block;font:600 15px/1 var(--sans);color:#fff;text-decoration:none;opacity:.9;padding:8px 0}
+.dt-nav a:hover,.dt-nav a:focus-visible{opacity:1;text-decoration:underline;text-underline-offset:4px}
+.dt-id{display:flex;align-items:center;gap:18px;margin:18px 0 16px}
+.dt-icon{width:96px;height:96px;border-radius:22%;background:#fff;box-shadow:0 10px 28px rgba(0,0,0,.3);flex:0 0 auto}
+.dt-id h1{font-size:clamp(30px,7vw,42px);line-height:1.08;margin:0 0 8px;color:#fff}
+.dt-status{display:inline-block;font:600 13px/1 var(--sans);border:1px solid rgba(255,255,255,.75);border-radius:999px;padding:7px 11px}
+.dt-blurb{font-size:19px;line-height:1.55;margin:0 0 22px;color:#fff;opacity:.95}
+.dt-buy{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px}
+.dt-btn{display:inline-block;background:#fff;color:var(--accent);text-decoration:none;font:700 17px/1.2 var(--sans);padding:15px 22px;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.dt-btn small{display:block;font:500 13px/1.35 var(--sans);color:#4a4a4a;margin-top:4px}
+.dt-btn:hover,.dt-btn:focus-visible{transform:translateY(-1px);box-shadow:0 10px 24px rgba(0,0,0,.24)}
+.dt-price{font:600 16px/1.4 var(--sans);margin:0;color:#fff}
+.dt-price span{display:block;font-weight:400;font-size:14px;opacity:.85}
+.dt-main{padding-top:8px}
+.dt-h{font:600 14px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:30px 0 12px}
+.dt-shots{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 12px;margin:0 -2px;-webkit-overflow-scrolling:touch}
+.dt-shots figure{margin:0;flex:0 0 180px;scroll-snap-align:start}
+.dt-shots img{display:block;width:180px;height:auto;border-radius:16px;border:1px solid var(--line);background:var(--card)}
+.dt-shots figcaption{font:13px/1.4 var(--sans);color:var(--soft);margin-top:8px}
+.dt-shots:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:8px}
+.dt-fine{font:13px/1.4 var(--sans);color:var(--muted);margin:2px 0 0}
+.dt-note{color:var(--soft);margin:0 0 12px}
+.dt-tag{font:14px/1.5 var(--sans);color:var(--muted);margin:0}
+.dt-more{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:28px 0 0;font:15px/1.4 var(--sans)}
+.dt-more a{color:var(--ink);text-decoration-color:var(--gold);text-underline-offset:3px}
+.dt-more .dt-all{font-weight:700}
+.dt-step{display:flex;justify-content:space-between;gap:10px;margin:36px 0 8px;padding:16px 0 0;border-top:1px solid var(--line);font:600 14px/1.3 var(--sans)}
+.dt-step a{color:var(--ink);text-decoration:none}
+.dt-step a:hover,.dt-step a:focus-visible{text-decoration:underline;text-decoration-color:var(--gold)}
+@media (min-width:640px){.dt-shots figure{flex-basis:200px}.dt-shots img{width:200px}}
+
+/* ---- the shared icon tile (grid page and homepage row) ---- */
+.app{display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;color:var(--ink);-webkit-tap-highlight-color:transparent;outline:none}
+.tile{position:relative;width:60px;height:60px;border-radius:22%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.08),0 6px 16px -6px rgba(21,26,51,.28);display:grid;place-items:center;transition:transform .22s cubic-bezier(.2,.8,.2,1),box-shadow .22s}
+.tile img{width:100%;height:100%;border-radius:22%;display:block}
+.app:hover .tile,.app:focus-visible .tile{transform:translateY(-3px);box-shadow:0 2px 4px rgba(0,0,0,.08),0 12px 22px -8px rgba(21,26,51,.38)}
+.app:focus-visible .tile{outline:2px solid var(--gold);outline-offset:3px}
+.app.pressed .tile{transform:scale(.9);transition-duration:.09s}
+.name{font:500 12px/1.25 var(--sans);text-align:center;max-width:100%;color:var(--soft)}
+.soon{position:absolute;top:-7px;right:-9px;font:700 10px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;background:var(--gold);color:#151a33;border-radius:999px;padding:4px 7px;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+@media (prefers-color-scheme:dark){.tile{box-shadow:0 1px 2px rgba(0,0,0,.4),0 8px 18px -8px rgba(0,0,0,.7)}}
+
+/* ---- homepage app row: a sideways strip of icons at the top ---- */
+.approw{padding:22px 0 6px;border-bottom:1px solid var(--line)}
+.approw-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.approw h2{font:600 13px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0}
+.approw-top a{font:600 14px/1 var(--sans);color:var(--ink);text-decoration-color:var(--gold);text-underline-offset:3px}
+.approw-list{list-style:none;display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x proximity;margin:12px -20px 0;padding:6px 20px 14px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.approw-list::-webkit-scrollbar{display:none}
+.approw-list li{flex:0 0 76px;scroll-snap-align:start;display:flex;justify-content:center}
+.approw-list .app{width:76px}
+.approw-list .name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:72px}
+.approw-list .soon{right:-6px}
+
+/* launch: the tapped app's colour opens out from its icon to fill the screen */
+.launch{position:fixed;inset:0;z-index:50;display:grid;place-items:center;pointer-events:none;will-change:clip-path}
+.launch .glyph{width:96px;height:96px;border-radius:22%;background:#fff;display:grid;place-items:center;box-shadow:0 10px 40px rgba(0,0,0,.25);will-change:transform,opacity}
+.launch .glyph img{width:100%;height:100%;border-radius:22%}
+.launch .glyph.mono{background:rgba(255,255,255,.12);color:#fff;font:700 50px/1 var(--serif)}
+.launch .title{position:absolute;left:0;right:0;top:calc(50% + 72px);text-align:center;color:#fff;font:600 20px/1.2 var(--sans);letter-spacing:.01em}
