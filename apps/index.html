@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Every App from Carrier Labs, One Tap Away</title><meta name="description" content="Every Carrier Labs app on one screen. Tap an icon to see what the app does and what it costs, then open it right in your browser.">
+<link rel="canonical" href="https://carrierlabs.org/apps/"><meta property="og:title" content="Every App from Carrier Labs, One Tap Away"><meta property="og:description" content="Every Carrier Labs app on one screen. Tap an icon to see what the app does and what it costs, then open it right in your browser.">
+<meta property="og:url" content="https://carrierlabs.org/apps/"><meta property="og:type" content="website"><meta name="twitter:card" content="summary">
+<link rel="icon" href="../favicon.png" type="image/png"><link rel="stylesheet" href="../styles.css">
+<style>
+.home{padding:48px 0 4px}
+.home h1{margin:12px 0 10px}
+.home .lede{margin:0 0 28px}
+.springboard{list-style:none;margin:0 0 12px;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:24px 6px}
+.springboard li{display:flex;justify-content:center;min-width:0}
+.app{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;text-decoration:none;color:var(--ink);-webkit-tap-highlight-color:transparent;outline:none}
+.tile{position:relative;width:60px;height:60px;border-radius:22%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.08),0 6px 16px -6px rgba(21,26,51,.28);display:grid;place-items:center;overflow:visible;transition:transform .22s cubic-bezier(.2,.8,.2,1),box-shadow .22s}
+.tile img{width:100%;height:100%;border-radius:22%;display:block}
+.tile.mono{background:#3A3A4C;color:#fff;font:700 32px/1 var(--serif)}
+.app:hover .tile,.app:focus-visible .tile{transform:translateY(-3px);box-shadow:0 2px 4px rgba(0,0,0,.08),0 12px 22px -8px rgba(21,26,51,.38)}
+.app:focus-visible .tile{outline:2px solid var(--gold);outline-offset:3px}
+.app.pressed .tile{transform:scale(.9);transition-duration:.09s}
+.name{font:500 12px/1.25 var(--sans);text-align:center;max-width:100%;color:var(--soft)}
+@media (max-width:330px){.springboard{grid-template-columns:repeat(3,1fr)}}
+.soon{position:absolute;top:-7px;right:-9px;font:700 10px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;background:var(--gold);color:#151a33;border-radius:999px;padding:4px 7px;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.more{font:15px/1.5 var(--sans);color:var(--muted);margin:28px 0 0}
+.more a{color:var(--ink);text-decoration-color:var(--gold);text-underline-offset:3px}
+.crumb{font:600 13px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);text-decoration:none}
+@media (prefers-color-scheme:dark){.tile{box-shadow:0 1px 2px rgba(0,0,0,.4),0 8px 18px -8px rgba(0,0,0,.7)}}
+@media (min-width:640px){.springboard{grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:32px 12px}.tile{width:84px;height:84px}.tile.mono{font-size:44px}.name{font-size:13px}}
+/* entrance: icons settle in, a few at a time, like a phone waking up */
+@media (prefers-reduced-motion:no-preference){
+.js .springboard li{animation:settle .5s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i) * 22ms)}
+@keyframes settle{from{opacity:0;transform:translateY(10px) scale(.86)}to{opacity:1;transform:none}}
+}
+/* launch: the tapped app's colour opens out from its icon to fill the screen */
+.launch{position:fixed;inset:0;z-index:50;display:grid;place-items:center;pointer-events:none;will-change:clip-path}
+.launch .glyph{width:96px;height:96px;border-radius:22%;background:#fff;display:grid;place-items:center;box-shadow:0 10px 40px rgba(0,0,0,.25);will-change:transform,opacity}
+.launch .glyph img{width:100%;height:100%;border-radius:22%}
+.launch .glyph.mono{background:rgba(255,255,255,.12);color:#fff;font:700 50px/1 var(--serif)}
+.launch .title{position:absolute;left:0;right:0;top:calc(50% + 72px);text-align:center;color:#fff;font:600 20px/1.2 var(--sans);letter-spacing:.01em}
+</style>
+</head>
+<body><main class="wrap">
+<header class="home"><a class="crumb" href="../">Carrier Labs</a><h1>Every app, one tap away.</h1><p class="lede">Each one runs right in your browser. Tap an icon to see what the app does and what it costs.</p></header>
+
+<ul class="springboard">
+<li style="--i:0"><a class="app" href="https://carrierpress.com/apps/bench/" data-accent="#3A3A4C"><span class="tile mono" aria-hidden="true">B</span><span class="name">Bench</span></a></li>
+<li style="--i:1"><a class="app" href="https://carrierpress.com/apps/boatready/" data-accent="#102F42"><span class="tile"><img src="icons/boatready.webp" alt="" width="84" height="84"></span><span class="name">Boat Ready</span></a></li>
+<li style="--i:2"><a class="app" href="https://carrierpress.com/apps/soleledger/" data-accent="#54565A"><span class="tile"><img src="icons/soleledger.webp" alt="" width="84" height="84"></span><span class="name">Books for One</span></a></li>
+<li style="--i:3"><a class="app" href="https://carrierpress.com/apps/cancelled/" data-accent="#2F5D50"><span class="tile"><img src="icons/cancelled.webp" alt="" width="84" height="84"></span><span class="name">Canceled</span></a></li>
+<li style="--i:4"><a class="app" href="https://carrierpress.com/apps/cast/" data-accent="#6E5316"><span class="tile"><img src="icons/cast.webp" alt="" width="84" height="84"></span><span class="name">Cast</span></a></li>
+<li style="--i:5"><a class="app" href="https://carrierpress.com/apps/conceptionzodiac/" data-accent="#2E2458"><span class="tile"><img src="icons/conceptionzodiac.webp" alt="" width="84" height="84"></span><span class="name">Conception Zodiac</span></a></li>
+<li style="--i:6"><a class="app" href="https://carrierpress.com/apps/crosscheck/" data-accent="#3A5A6E"><span class="tile"><img src="icons/crosscheck.webp" alt="" width="84" height="84"></span><span class="name">Crosscheck</span></a></li>
+<li style="--i:7"><a class="app" href="https://carrierpress.com/apps/downpour/" data-accent="#22557F"><span class="tile"><img src="icons/downpour.webp" alt="" width="84" height="84"></span><span class="name">Downpour</span></a></li>
+<li style="--i:8"><a class="app" href="https://carrierpress.com/apps/endorsed/" data-accent="#3A3A4C"><span class="tile mono" aria-hidden="true">E</span><span class="name">Endorsed</span></a></li>
+<li style="--i:9"><a class="app" href="https://carrierpress.com/apps/firstday/" data-accent="#185956"><span class="tile"><img src="icons/firstday.webp" alt="" width="84" height="84"></span><span class="name">FirstDay</span></a></li>
+<li style="--i:10"><a class="app" href="https://carrierpress.com/apps/flare/" data-accent="#933C2A"><span class="tile"><img src="icons/flare.webp" alt="" width="84" height="84"></span><span class="name">Flare</span></a></li>
+<li style="--i:11"><a class="app" href="https://carrierpress.com/apps/fluenthour/" data-accent="#874730"><span class="tile"><img src="icons/fluenthour.webp" alt="" width="84" height="84"></span><span class="name">Fluent Hour</span></a></li>
+<li style="--i:12"><a class="app" href="https://carrierpress.com/apps/gedcompletion/" data-accent="#1F5C4A"><span class="tile"><img src="icons/gedcompletion.webp" alt="" width="84" height="84"><span class="soon">Soon</span></span><span class="name">GED Completion</span></a></li>
+<li style="--i:13"><a class="app" href="https://carrierpress.com/apps/handoff/" data-accent="#4A5568"><span class="tile"><img src="icons/handoff.webp" alt="" width="84" height="84"></span><span class="name">Handoff</span></a></li>
+<li style="--i:14"><a class="app" href="https://carrierpress.com/apps/homeroom/" data-accent="#285F47"><span class="tile"><img src="icons/homeroom.webp" alt="" width="84" height="84"></span><span class="name">Homeroom</span></a></li>
+<li style="--i:15"><a class="app" href="https://carrierpress.com/apps/pantry/" data-accent="#874521"><span class="tile"><img src="icons/pantry.webp" alt="" width="84" height="84"></span><span class="name">Pantry</span></a></li>
+<li style="--i:16"><a class="app" href="https://carrierpress.com/apps/papertrail/" data-accent="#2A5F47"><span class="tile"><img src="icons/papertrail.webp" alt="" width="84" height="84"></span><span class="name">Paper Trail</span></a></li>
+<li style="--i:17"><a class="app" href="https://carrierpress.com/apps/pillproof/" data-accent="#1B4F8F"><span class="tile"><img src="icons/pillproof.webp" alt="" width="84" height="84"></span><span class="name">PillProof</span></a></li>
+<li style="--i:18"><a class="app" href="https://carrierpress.com/apps/planfinder/" data-accent="#2F5169"><span class="tile"><img src="icons/planfinder.webp" alt="" width="84" height="84"></span><span class="name">Plan Finder</span></a></li>
+<li style="--i:19"><a class="app" href="https://carrierpress.com/apps/potluck/" data-accent="#6F4822"><span class="tile"><img src="icons/potluck.webp" alt="" width="84" height="84"></span><span class="name">Potluck</span></a></li>
+<li style="--i:20"><a class="app" href="https://carrierpress.com/apps/quiet/" data-accent="#60513F"><span class="tile"><img src="icons/quiet.webp" alt="" width="84" height="84"></span><span class="name">Quiet</span></a></li>
+<li style="--i:21"><a class="app" href="https://carrierpress.com/apps/spellbright/" data-accent="#3A3A4C"><span class="tile mono" aria-hidden="true">S</span><span class="name">Spellbright</span></a></li>
+<li style="--i:22"><a class="app" href="https://carrierpress.com/apps/stuck/" data-accent="#195F5F"><span class="tile"><img src="icons/stuck.webp" alt="" width="84" height="84"></span><span class="name">Stuck</span></a></li>
+<li style="--i:23"><a class="app" href="https://carrierpress.com/apps/thebinder/" data-accent="#4A5240"><span class="tile"><img src="icons/thebinder.webp" alt="" width="84" height="84"></span><span class="name">The Binder</span></a></li>
+<li style="--i:24"><a class="app" href="https://carrierpress.com/apps/threshold/" data-accent="#6F510C"><span class="tile"><img src="icons/threshold.webp" alt="" width="84" height="84"></span><span class="name">Threshold</span></a></li>
+<li style="--i:25"><a class="app" href="https://carrierpress.com/apps/throughthegate/" data-accent="#1B557D"><span class="tile"><img src="icons/throughthegate.webp" alt="" width="84" height="84"></span><span class="name">Through the Gate</span></a></li>
+<li style="--i:26"><a class="app" href="https://carrierpress.com/apps/tradedesk/" data-accent="#914216"><span class="tile"><img src="icons/tradedesk.webp" alt="" width="84" height="84"></span><span class="name">Trade Desk</span></a></li>
+<li style="--i:27"><a class="app" href="https://carrierpress.com/apps/vetpocket/" data-accent="#6D492B"><span class="tile"><img src="icons/vetpocket.webp" alt="" width="84" height="84"></span><span class="name">Vet Pocket</span></a></li>
+<li style="--i:28"><a class="app" href="https://carrierpress.com/apps/waitlist/" data-accent="#42556D"><span class="tile"><img src="icons/waitlist.webp" alt="" width="84" height="84"><span class="soon">Soon</span></span><span class="name">Waitlist</span></a></li>
+<li style="--i:29"><a class="app" href="https://carrierpress.com/apps/whoserves/" data-accent="#2F4858"><span class="tile"><img src="icons/whoserves.webp" alt="" width="84" height="84"></span><span class="name">Who Serves</span></a></li>
+</ul>
+
+<p class="more">Want prices side by side? <a href="https://carrierpress.com/apps/">See every app with its price</a>. Listening instead? <a href="../">Cast performs books with a voice for each character</a>.</p>
+</main>
+<footer class="wrap">&copy; 2026 Carrier Labs LLC, Diamondhead, Mississippi. Part of <a href="https://carrierventures.org/">Carrier Ventures</a> &middot; <a href="https://carrierpress.com/">Carrier Press</a></footer>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  document.documentElement.classList.add('js');
+  var overlay = null, timer = null;
+
+  function clear(){
+    if (overlay) { overlay.remove(); overlay = null; }
+    if (timer) { clearTimeout(timer); timer = null; }
+    document.querySelectorAll('.app.pressed').forEach(function(a){ a.classList.remove('pressed'); });
+  }
+  // Coming back with the Back button restores this page from cache: drop the overlay.
+  window.addEventListener('pageshow', clear);
+
+  document.querySelectorAll('.app').forEach(function(a){
+    a.addEventListener('pointerdown', function(){ a.classList.add('pressed'); });
+    ['pointerup','pointerleave','pointercancel'].forEach(function(t){
+      a.addEventListener(t, function(){ a.classList.remove('pressed'); });
+    });
+
+    a.addEventListener('click', function(e){
+      // New tab, new window, or reduced motion: let the plain link do its job.
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      if (reduce.matches || !('animate' in Element.prototype) || overlay) return;
+      e.preventDefault();
+
+      var href = a.href, tile = a.querySelector('.tile'), r = tile.getBoundingClientRect();
+      var W = window.innerWidth, H = window.innerHeight;
+      var radius = r.width * 0.22;
+
+      overlay = document.createElement('div');
+      overlay.className = 'launch';
+      overlay.setAttribute('aria-hidden', 'true');
+      overlay.style.background = a.dataset.accent || '#151a33';
+      var glyph = document.createElement('div');
+      var img = tile.querySelector('img');
+      if (img) { glyph.className = 'glyph'; glyph.appendChild(img.cloneNode()); }
+      else { glyph.className = 'glyph mono'; glyph.textContent = tile.textContent; }
+      var title = document.createElement('div');
+      title.className = 'title';
+      title.textContent = a.querySelector('.name').textContent;
+      overlay.appendChild(glyph); overlay.appendChild(title);
+      document.body.appendChild(overlay);
+
+      // 1. The colour opens out from the icon's exact spot to the whole screen.
+      var from = 'inset(' + r.top + 'px ' + (W - r.right) + 'px ' + (H - r.bottom) + 'px ' + r.left + 'px round ' + radius + 'px)';
+      var open = overlay.animate(
+        [{ clipPath: from }, { clipPath: 'inset(0px 0px 0px 0px round 0px)' }],
+        { duration: 480, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'forwards' });
+
+      // 2. The icon travels with it from where it sat to the centre, growing as it goes.
+      var dx = (r.left + r.width / 2) - W / 2, dy = (r.top + r.height / 2) - H / 2, s = r.width / 96;
+      glyph.animate(
+        [{ transform: 'translate(' + dx + 'px,' + dy + 'px) scale(' + s + ')' }, { transform: 'none' }],
+        { duration: 480, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'forwards' });
+
+      // 3. The name rises in underneath.
+      title.animate(
+        [{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }],
+        { duration: 260, delay: 260, easing: 'ease-out', fill: 'both' });
+
+      var go = function(){ window.location.href = href; };
+      open.onfinish = function(){ timer = setTimeout(go, 160); };
+      // Safety net: never strand anyone on the colour screen.
+      setTimeout(go, 1100);
+    });
+  });
+})();
+</script>
+</body></html>
