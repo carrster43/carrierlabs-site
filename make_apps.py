@@ -220,7 +220,11 @@ def main():
            "<ul class=\"springboard\">\n%s\n</ul>" % "\n".join(tile(a, "", i) for i, a in enumerate(apps)))
     splice(HERE / "index.html", "apps:row", topnav("labs", ""))
     splice(HERE / "apps/index.html", "apps:nav", topnav("apps", "../"))
-    urls = ["", "apps/"] + ["apps/%s/" % a["slug"] for a in apps]
+    # Only pages that name themselves canonical (2026-11-27): each detail page
+    # canonicals to its carrierpress.com app page, and a sitemap URL that points
+    # elsewhere tells a search engine two different things about one page.
+    urls = [u for u in ["", "apps/"] + ["apps/%s/" % a["slug"] for a in apps]
+            if 'rel="canonical" href="%s/%s"' % (LABS_URL, u) in (HERE / u / "index.html").read_text()]
     (HERE / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n%s\n</urlset>\n'
         % "\n".join("  <url><loc>%s/%s</loc></url>" % (LABS_URL, u) for u in urls))
